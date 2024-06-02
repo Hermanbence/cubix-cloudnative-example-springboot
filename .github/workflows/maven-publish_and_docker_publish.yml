@@ -43,7 +43,7 @@ jobs:
         name: java-app
         path: '${{ github.workspace }}/target/*.jar'
 
-  docker:
+  build:
 
     runs-on: ubuntu-latest
     needs: maven
@@ -52,18 +52,11 @@ jobs:
       packages: write
 
     steps:
-    - name: Download artifact from maven job
-      uses: actions/download-artifact@v3
-      with:
-        name: java-app
-
     - name: Logging in to Docker
       run: docker login ghcr.io -u Hermanbence -p ${{ github.token }}
 
     - name: Build the Docker image
-      run: |
-          cd ${{ github.workspace }}
-          docker build --tag ghcr.io/hermanbence/cubix/cloudnative/demo:actions .
+      run: docker build --tag ghcr.io/hermanbence/cubix/cloudnative/demo:actions .
 
     - name: Publishing the Docker image
       run: docker push ghcr.io/hermanbence/cubix/cloudnative/demo:actions
