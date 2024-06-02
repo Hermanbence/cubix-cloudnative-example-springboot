@@ -22,6 +22,7 @@ jobs:
     - name: Build the Docker image
       run: |
         pwd
+        cd ..
         ls -la
         docker build --tag ghcr.io/hermanbence/cubix/cloudnative/demo:actions .
 
