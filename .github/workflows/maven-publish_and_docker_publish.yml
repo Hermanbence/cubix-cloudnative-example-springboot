@@ -58,7 +58,7 @@ jobs:
         name: java-app
 
     - name: Logging in to Docker
-      run: docker login ghcr.io -u hermanbence -p ${{ github.token }}
+      run: docker login ghcr.io -u Hermanbence -p ${{ github.token }}
 
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag ghcr.io/hermanbence/cubix/cloudnative/demo:actions
