@@ -65,4 +65,4 @@ jobs:
       run: docker build . --file Dockerfile --tag ghcr.io/hermanbence/cubix/cloudnative/demo:actions
 
     - name: Publishing the Docker image
-      run: docker login ghcr.io -u Hermanbence -p ${{ github.token }}
+      run: docker push ghcr.io/hermanbence/cubix/cloudnative/demo:actions
